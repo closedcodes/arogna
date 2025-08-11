@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
     
@@ -28,7 +28,7 @@ export default function ForgotPasswordPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Dna className="h-8 w-8 text-blue-600" />
+            {((Dna as unknown) as any) && <Dna className="h-8 w-8 text-blue-600" />}
             <span className="text-2xl font-bold">Arogna</span>
           </div>
           <CardTitle>Forgot Password</CardTitle>
@@ -43,7 +43,7 @@ export default function ForgotPasswordPage() {
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 required
               />
               <Button type="submit" className="w-full" disabled={loading}>

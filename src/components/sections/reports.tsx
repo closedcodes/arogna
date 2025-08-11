@@ -7,7 +7,7 @@ import { FileText, Download, Calendar, Clock, Users, Edit3, CheckSquare } from "
 
 export default function Reports() {
   const [showGenerator, setShowGenerator] = useState(false)
-  const [selectedSections, setSelectedSections] = useState([])
+  const [selectedSections, setSelectedSections] = useState<string[]>([])
   
   const reports = [
     { name: "Monthly Research Summary", date: "2024-01-15", type: "PDF", status: "Published" },
@@ -24,7 +24,7 @@ export default function Reports() {
     { id: "conclusion", name: "Conclusion", description: "Summary and future work" },
   ]
 
-  const toggleSection = (sectionId) => {
+  const toggleSection = (sectionId: string) => {
     setSelectedSections(prev => 
       prev.includes(sectionId) 
         ? prev.filter(id => id !== sectionId)

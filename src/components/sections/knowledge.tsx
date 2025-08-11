@@ -40,7 +40,7 @@ export default function Knowledge() {
     }
   ]
 
-  const toggleTopic = (topicId) => {
+  const toggleTopic = (topicId: string) => {
     setExpandedTopics(prev => 
       prev.includes(topicId) 
         ? prev.filter(id => id !== topicId)

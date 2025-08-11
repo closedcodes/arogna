@@ -6,7 +6,16 @@ import { Button } from "@/components/ui/button"
 import { Plus, Play, Pause, MoreHorizontal, Filter, Calendar, Tag } from "lucide-react"
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null)
+  type Project = {
+    id: number;
+    name: string;
+    status: string;
+    progress: number;
+    stage: string;
+    lastUpdate: string;
+    tags: string[];
+  };
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [filter, setFilter] = useState("all")
   
   const projects = [

@@ -6,7 +6,15 @@ import { Button } from "@/components/ui/button"
 import { Brain, Play, Settings, BarChart3, Download, GitCompare } from "lucide-react"
 
 export default function Models() {
-  const [selectedModel, setSelectedModel] = useState(null)
+  type Model = {
+    name: string;
+    type: string;
+    accuracy: string;
+    application: string;
+    dataSource: string;
+    lastTrained: string;
+  };
+  const [selectedModel, setSelectedModel] = useState<Model | null>(null)
   
   const models = [
     { 
